@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock  %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/index.css" %}">
+    <link rel="stylesheet" href="{% static "blog/includes/post.css" %}">
+{% endblock  %}
+
+{% block content %}
+
+
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/my_cv_photo.jpg" %}" alt="Simon - this is my sandbox"/>
+            <h2>SIMON'S BLOG</h2>
+        </header>
+        <p>Hi, I am Simon and I love to learn about Python and coding.</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latests Thoughts</h2>
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I do</h2>
+        <p>I love coding, new techs and personal growth literature.</p>
+        <p>Some other short paragraphs about blog or me.</p>
+    </section>
+{% endblock  %}
